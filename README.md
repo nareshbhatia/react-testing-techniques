@@ -20,6 +20,15 @@ to test React applications. We use the following tools for testing:
 - [Cypress](https://www.cypress.io/) - a testing framework for fully built Web
   applications running in a browser
 
+**Manual Testing**
+
+- [Storybook](https://storybook.js.org/) - a tool that helps build components in
+  isolation and record their states as stories. Stories make it easy to explore
+  a component in all its permutations no matter how complex. They also serve as
+  excellent visual test cases. Storybook testing can also be automated. For
+  details, look at the
+  [Storybook documentation](https://storybook.js.org/docs/react/workflows/testing-with-storybook).
+
 This project was bootstrapped with
 [React Accelerate](https://github.com/PublicisSapient/cra-template-accelerate).
 
@@ -31,6 +40,9 @@ This project was bootstrapped with
 
 ## Getting Started
 
+> Note: If you prefer to use npm, please feel free to replace the yarn commands
+> in this section with equivalent npm commands.
+
 Make sure your development machine is set up for building React apps. See the
 recommended setup procedure
 [here](https://github.com/nareshbhatia/react-learning-resources/blob/main/docs/mac-setup.md).
@@ -38,8 +50,6 @@ recommended setup procedure
 Execute the following commands to install dependencies:
 
 ```sh
-# if using yarn v7 add --legacy-peer-deps option
-# see details here: https://github.com/storybookjs/storybook/issues/12983
 yarn install
 ```
 
@@ -53,25 +63,24 @@ Now point your browser to http://localhost:3000/.
 
 ## Running Unit Tests
 
-React Accelerate comes ready with Jest and React Testing Library to run unit
-tests. Execute one of the following command to run unit tests.
+Execute one of the following command to run unit tests.
 
 ```sh
 yarn test # interactive mode
 yarn test:coverage # non-interactive mode with coverage information
 ```
 
-Note that unit tests are automatically executed when you commit code to your
-local repo. This ensures that you are not committing broken code.
-
 ## Running End-to-End Tests
-
-React Accelerate comes ready with Cypress to run end-to-end tests. Execute
-Cypress using the following commands:
 
 ```sh
 yarn start # starts a local server hosting your react app
 
 # run cypress in a different shell
 yarn cypress:open
+```
+
+## Running Storybook
+
+```sh
+yarn storybook
 ```
