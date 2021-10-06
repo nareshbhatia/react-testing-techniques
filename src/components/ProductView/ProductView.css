@@ -1,0 +1,13 @@
+.product {
+  margin-bottom: var(--sp-2);
+  padding: var(--sp-2);
+  border-radius: var(--px-4);
+  cursor: pointer;
+  user-select: none;
+}
+
+.product__photo {
+  object-fit: cover;
+  height: 100%;
+  width: 10rem;
+}

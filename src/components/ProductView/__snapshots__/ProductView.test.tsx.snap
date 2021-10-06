@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductView /> renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-1 flex flex-row product paper border-paper items-center"
+    data-testid="product"
+  >
+    <img
+      alt="iMac"
+      class="product__photo"
+      src="https://firebasestorage.googleapis.com/v0/b/mobx-shop.appspot.com/o/apple-imac.jpg?alt=media&token=69d03695-d57d-4b1a-952c-909a21af9099"
+    />
+    <div
+      class="ml-4"
+    >
+      <h3>
+        iMac
+      </h3>
+      <p
+        class="mt-0"
+      >
+        The 27‑inch iMac is packed with powerful tools and apps that let you take any idea to the next level. Its superfast processors and graphics, massive memory, and all-flash storage can tackle any workload with ease. And with its advanced audio and video capabilities and stunning 5K Retina display, everything you do is larger than life.
+      </p>
+      <p
+        class="mb-0"
+      >
+        $1,299.00
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

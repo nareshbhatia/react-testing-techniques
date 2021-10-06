@@ -1,0 +1,118 @@
+{
+  "name": "react-testing-techniques",
+  "description": "React testing Techniques",
+  "version": "0.1.0",
+  "author": "Naresh Bhatia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nareshbhatia/react-testing-techniques"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "build-storybook": "build-storybook -s public",
+    "cypress:open": "cypress open",
+    "eject": "react-scripts eject",
+    "format": "prettier --write README.md \"src/**/{*.md,*.json,*.css,*.ts*}\" \"cypress/integration/**/*\"",
+    "lint": "eslint src",
+    "start": "react-scripts start",
+    "storybook": "start-storybook -p 6006 -s public",
+    "test": "yarn lint && yarn test:coverage",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:update": "react-scripts test --watchAll=false --updateSnapshot",
+    "test:watch": "react-scripts test"
+  },
+  "dependencies": {
+    "@http-utils/core": "^1.1.0",
+    "@react-force/number-utils": "^2.1.0",
+    "axios": "^0.22.0",
+    "history": "5.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-query": "^3.25.0",
+    "react-router-dom": "^6.0.0-beta.5",
+    "react-scripts": "4.0.3",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.3.9",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@storybook/addon-links": "^6.3.9",
+    "@storybook/node-logger": "^6.3.9",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.9",
+    "@testing-library/dom": "^8.7.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.2",
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "@types/uuid": "^8.3.1",
+    "cypress": "^8.5.0",
+    "husky": "^4.3.8",
+    "msw": "^0.35.0",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "typescript": "^4.4.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "@typescript-eslint/no-unused-vars": "error"
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run test:coverage"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!src/mocks/**",
+      "!src/stories/**",
+      "!src/test/**",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}

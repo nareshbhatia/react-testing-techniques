@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleHeader /> renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="bg-primary-main px-2"
+  >
+    <nav
+      class="navbar"
+    >
+      <span
+        class="navbar__brand"
+      >
+        React Test Shop
+      </span>
+    </nav>
+  </header>
+</DocumentFragment>
+`;

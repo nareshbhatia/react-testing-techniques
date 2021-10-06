@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Containers CenteredContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-1 flex justify-center items-center text-center "
+    data-testid="centered-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers HorizontalContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-1 flex flex-row "
+    data-testid="horizontal-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers ScrollingContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="overflow-auto "
+    data-testid="scrolling-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers VerticalContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-1 flex flex-col "
+    data-testid="vertical-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers ViewCenteredContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="h-screen flex justify-center items-center text-center "
+    data-testid="centered-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers ViewHorizontalContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="h-screen flex flex-row "
+    data-testid="view-horizontal-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Containers ViewVerticalContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="h-screen flex flex-col "
+    data-testid="view-vertical-container"
+  >
+    Hello World!
+  </div>
+</DocumentFragment>
+`;

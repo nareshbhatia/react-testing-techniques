@@ -1,0 +1,4 @@
+.cart__qty {
+  width: var(--sp-5);
+  text-align: right;
+}

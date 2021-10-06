@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="bg-primary-main"
+  >
+    <div
+      class="container"
+    >
+      <nav
+        class="navbar"
+      >
+        <span
+          class="navbar__brand"
+        >
+          React Test Shop
+        </span>
+        <ul
+          class="flex-1"
+        >
+          <li>
+            <a
+              aria-current="page"
+              class="navbar__link active"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              href="/orders"
+            >
+              Orders
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</DocumentFragment>
+`;
