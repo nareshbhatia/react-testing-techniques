@@ -29,14 +29,24 @@ to test React applications. We use the following tools for testing:
   details, look at the
   [Storybook documentation](https://storybook.js.org/docs/react/workflows/testing-with-storybook).
 
-This project was bootstrapped with
-[React Accelerate](https://github.com/PublicisSapient/cra-template-accelerate).
+_This project was bootstrapped with
+[React Accelerate](https://github.com/PublicisSapient/cra-template-accelerate)._
 
-## Screenshots
+## Testing Topics
 
-**Home page with item catalog and shopping cart**
-
-![Home Page](assets/screenshot-home.png)
+- Structuring code for easier testing - pure JavaScript logic vs. React components
+- Snapshot testing vs. traditional unit testing
+- Suppressing console errors
+- Checking for existence of an element
+- Waiting for removal of an element
+- Waiting for something to happen
+- User events (note how {selectall} works)
+- Mocking a callback (see ProductView test)
+- Use MSW instead of excessive mocking
+- Overriding MSW handlers (see CartView test)
+- Mocking MSW handlers (see CatalogView test)
+- Difference between queryBy, getBy and findBy
+- Testing for page navigation
 
 ## Getting Started
 
@@ -87,3 +97,9 @@ yarn cypress:open
 ```sh
 yarn storybook
 ```
+
+## Screenshots
+
+**Home page with item catalog and shopping cart**
+
+![Home Page](assets/screenshot-home.png)

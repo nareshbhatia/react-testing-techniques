@@ -3,16 +3,18 @@ import { Product } from './Product';
 
 const product1: Product = {
   id: 'apple-macbook-pro',
-  manufacturer: 'Apple',
   name: 'MacBook Pro',
+  description: 'Defy limits and change the world',
+  manufacturer: 'Apple',
   price: 100,
   photo: 'https://photos.example.com/1',
 };
 
 const product2: Product = {
   id: 'apple-imac',
-  manufacturer: 'Apple',
   name: 'iMac',
+  description: 'Take any idea to the next level',
+  manufacturer: 'Apple',
   price: 200,
   photo: 'https://photos.example.com/2',
 };
