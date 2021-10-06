@@ -45,7 +45,7 @@ This project was bootstrapped with
 
 Make sure your development machine is set up for building React apps. See the
 recommended setup procedure
-[here](https://github.com/nareshbhatia/react-learning-resources/blob/main/docs/mac-setup.md).
+[here](https://github.com/nareshbhatia/react-learning-resources#developer-machine-setup).
 
 Execute the following commands to install dependencies:
 
@@ -53,7 +53,7 @@ Execute the following commands to install dependencies:
 yarn install
 ```
 
-Now execute the following commands to run the app:
+Execute the following commands to run the app:
 
 ```sh
 yarn start
@@ -67,6 +67,9 @@ Execute one of the following command to run unit tests.
 
 ```sh
 yarn test # interactive mode
+
+# OR
+
 yarn test:coverage # non-interactive mode with coverage information
 ```
 
@@ -75,7 +78,7 @@ yarn test:coverage # non-interactive mode with coverage information
 ```sh
 yarn start # starts a local server hosting your react app
 
-# run cypress in a different shell
+# in a difference shell, run cypress
 yarn cypress:open
 ```
 
