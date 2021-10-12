@@ -58,7 +58,7 @@ export const CartView = () => {
       <HorizontalContainer className="justify-between items-center">
         <h2>Shopping Cart</h2>
         {cart.items.length > 0 ? (
-          <button className="btn btn-secondary" onClick={handleCheckout}>
+          <button className="btn btn-sm btn-secondary" onClick={handleCheckout}>
             Checkout
           </button>
         ) : null}
@@ -71,7 +71,7 @@ export const CartView = () => {
             {cart.items.map((item, index) => (
               <tr key={index}>
                 <td>{item.productName}</td>
-                <td className="text-right">
+                <td className="cart__qty-col text-right">
                   <input
                     data-testid="quantity-input"
                     className="cart__qty"
@@ -83,10 +83,13 @@ export const CartView = () => {
                     }
                   />
                 </td>
-                <td className="text-right" data-testid="price-cell">
+                <td
+                  className="cart__price-col text-right"
+                  data-testid="price-cell"
+                >
                   {NumberUtils.formatAsMoney(item.price * item.quantity)}
                 </td>
-                <td className="text-center">
+                <td className="cart__del-col text-center">
                   <AiTwotoneDelete
                     data-testid="delete-button"
                     className="cursor-pointer"

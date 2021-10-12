@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrderItemList /> renders correctly 1`] = `
+<DocumentFragment>
+  <table
+    data-testid="order-items"
+  >
+    <tbody>
+      <tr
+        data-testid="order-item"
+      >
+        <td>
+          iMac
+        </td>
+        <td
+          class="order-items__quantity text-right"
+        >
+          1
+        </td>
+        <td
+          class="order-items__price text-right"
+          data-testid="price-cell"
+        >
+          1,299.00
+        </td>
+      </tr>
+      <tr
+        data-testid="order-item"
+      >
+        <td>
+          iPad
+        </td>
+        <td
+          class="order-items__quantity text-right"
+        >
+          1
+        </td>
+        <td
+          class="order-items__price text-right"
+          data-testid="price-cell"
+        >
+          249.00
+        </td>
+      </tr>
+      <tr
+        data-testid="order-item"
+      >
+        <td>
+          Nest Learning Thermostat
+        </td>
+        <td
+          class="order-items__quantity text-right"
+        >
+          1
+        </td>
+        <td
+          class="order-items__price text-right"
+          data-testid="price-cell"
+        >
+          249.00
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td
+          colspan="2"
+        >
+          Total
+        </td>
+        <td
+          class="text-right"
+        >
+          1,797.00
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</DocumentFragment>
+`;

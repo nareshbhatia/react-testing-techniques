@@ -1,12 +1,13 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
+import * as yup from 'yup';
 import { App } from './App';
 import { ErrorBoundary, Loading } from './components';
 import { EnvProvider } from './contexts';
 import reportWebVitals from './reportWebVitals';
+import { yupLocale } from './utils';
 import './services/AxiosInterceptors';
 import './styles/main.css';
 
@@ -25,6 +26,9 @@ const queryClient = new QueryClient({
   },
 });
 
+// set up yup errors
+yup.setLocale(yupLocale);
+
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<Loading />}>
@@ -34,7 +38,6 @@ ReactDOM.render(
             <Router>
               <App />
             </Router>
-            <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
         </EnvProvider>
       </ErrorBoundary>

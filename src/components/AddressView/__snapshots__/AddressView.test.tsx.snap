@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressView /> renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <h3
+      class="m-0"
+    >
+      Elon Musk
+    </h3>
+    <p
+      class="m-0"
+    >
+      Tesla, Inc.
+    </p>
+    <p
+      class="m-0"
+    >
+      3500 Deer Creek Road
+    </p>
+    <p
+      class="m-0"
+    >
+      Palo Alto, CA 94304
+    </p>
+  </div>
+</DocumentFragment>
+`;

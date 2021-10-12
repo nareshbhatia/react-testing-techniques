@@ -1,0 +1,7 @@
+.order {
+  margin-bottom: var(--sp-2);
+  padding: var(--sp-2);
+  border-radius: var(--px-4);
+  cursor: pointer;
+  user-select: none;
+}

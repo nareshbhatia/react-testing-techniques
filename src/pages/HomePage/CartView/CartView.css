@@ -2,3 +2,15 @@
   width: var(--sp-5);
   text-align: right;
 }
+
+.cart__qty-col {
+  width: 36px;
+}
+
+.cart__price-col {
+  width: 110px;
+}
+
+.cart__del-col {
+  width: 30px;
+}

@@ -21,7 +21,13 @@ function setCart(newCart: Cart) {
   Storage.set(CART_KEY, cart);
 }
 
+function clearCart() {
+  cart = { items: [] };
+  Storage.set(CART_KEY, cart);
+}
+
 export const mockDb = {
   getCart,
   setCart,
+  clearCart,
 };

@@ -94,6 +94,22 @@ tfoot {
   color: var(--primary-500);
 }
 
+.text-success {
+  color: var(--success-main);
+}
+
+.text-info {
+  color: var(--info-main);
+}
+
+.text-warning {
+  color: var(--warning-main);
+}
+
+.text-error {
+  color: var(--error-main);
+}
+
 /* ----- Interactivity ----- */
 .cursor-pointer {
   cursor: pointer;
@@ -122,6 +138,10 @@ tfoot {
 
 .flex-1 {
   flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
 }
 
 .flex-grow-1 {
@@ -190,11 +210,15 @@ tfoot {
 }
 
 .w-320 {
-  width: 320px;
+  width: var(--px-320);
 }
 
 .w-400 {
-  width: 400px;
+  width: var(--px-400);
+}
+
+.w-640 {
+  width: 640px;
 }
 
 .w-full {
@@ -203,6 +227,10 @@ tfoot {
 
 .w-screen {
   width: 100vh;
+}
+
+.max-w-400 {
+  max-width: var(--px-400);
 }
 
 /* ----- Margin ----- */
@@ -347,10 +375,19 @@ tfoot {
 /* ----- Buttons ----- */
 .btn {
   border: none;
-  border-radius: 8px;
-  padding: var(--px-6) var(--px-40);
+  border-radius: var(--px-8);
+  padding: var(--px-10) var(--px-40);
   font-size: var(--font-size-sm);
   font-weight: 600;
+}
+
+.btn-sm {
+  padding: var(--px-6) var(--px-40);
+}
+
+.btn-lg {
+  font-size: var(--font-size-xl);
+  line-height: 1.5;
 }
 
 .btn-primary {
@@ -384,7 +421,7 @@ tfoot {
 
 /* ----- Borders ----- */
 .rounded {
-  border-radius: 4px;
+  border-radius: var(--px-4);
 }
 
 /* ----- Overflow ----- */
@@ -416,6 +453,18 @@ tfoot {
 
 .border-paper {
   border: 1px solid var(--neutral-100);
+}
+
+/* ----- Forms ----- */
+label {
+  display: inline-block;
+  margin-bottom: var(--sp-1);
+}
+
+input {
+  border-radius: var(--px-4);
+  border: 1px solid var(--grey-300);
+  transition: all 0.2s ease;
 }
 
 :root {
@@ -467,6 +516,22 @@ tfoot {
   --neutral-800: #243b53;
   --neutral-900: #102a43;
 
+  --success-light: #4caf50;
+  --success-main: #2e7d32;
+  --success-dark: #1b5e20;
+
+  --info-light: #03a9f4;
+  --info-main: #0288d1;
+  --info-dark: #01579b;
+
+  --warning-light: #ff9800;
+  --warning-main: #ed6c02;
+  --warning-dark: #e65100;
+
+  --error-light: #ef5350;
+  --error-main: #d32f2f;
+  --error-dark: #c62828;
+
   --bg-default: var(--grey-50);
   --bg-paper: var(--white);
 
@@ -510,6 +575,8 @@ tfoot {
   --px-40: 2.5rem;
   --px-48: 3rem;
   --px-56: 3.5rem;
+  --px-320: 20rem;
+  --px-400: 25rem;
   --px-1280: 80rem;
 
   /* ----- Spacing ----- */

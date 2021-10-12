@@ -1,0 +1,6 @@
+.text-field__input {
+  display: block;
+  width: 100%;
+  padding: var(--px-8);
+  font-size: var(--font-size-base);
+}

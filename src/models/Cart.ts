@@ -1,4 +1,4 @@
-import { OrderItem } from './OrderItem';
+import { OrderItem, OrderItemUtils } from './OrderItem';
 import { Product } from './Product';
 
 // ----------------------------------------------------------------------------
@@ -10,9 +10,7 @@ export interface Cart {
 }
 
 function total(cart: Cart): number {
-  return cart.items.reduce((accumulator, item) => {
-    return accumulator + item.price * item.quantity;
-  }, 0);
+  return OrderItemUtils.totalItems(cart.items);
 }
 
 function findItem(cart: Cart, productId: string): OrderItem | undefined {

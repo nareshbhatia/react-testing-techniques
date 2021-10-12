@@ -34,7 +34,8 @@ _This project was bootstrapped with
 
 ## Testing Topics
 
-- Structuring code for easier testing - pure JavaScript logic vs. React components
+- Structuring code for easier testing - pure JavaScript logic vs. React
+  components
 - Snapshot testing vs. traditional unit testing
 - Suppressing console errors
 - Checking for existence of an element

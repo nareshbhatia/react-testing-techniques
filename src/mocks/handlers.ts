@@ -1,20 +1,29 @@
 import { rest } from 'msw';
-import { CartUtils } from '../models';
+import { v4 as uuidv4 } from 'uuid';
+import { CartUtils, CheckoutInfo, Order } from '../models';
 import { MOCK_API_URL } from './constants';
 import { mockCatalog } from './mockCatalog';
 import { mockDb } from './mockDb';
+import mockOrders from './mockOrders.json';
 
 interface AddProductInput {
   productId: string;
 }
 
 export const handlers = [
+  /** get catalog */
   rest.get(`${MOCK_API_URL}/catalog`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockCatalog));
   }),
 
+  /** get cart */
   rest.get(`${MOCK_API_URL}/cart`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockDb.getCart()));
+  }),
+
+  /** get orders */
+  rest.get(`${MOCK_API_URL}/orders`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockOrders));
   }),
 
   /** add a product to the cart */
@@ -43,5 +52,25 @@ export const handlers = [
     const newCart = CartUtils.setItemQuantity(cart, productId, quantity);
     mockDb.setCart(newCart);
     return res(ctx.status(200), ctx.json(newCart));
+  }),
+
+  /** create an order */
+  rest.post(`${MOCK_API_URL}/orders`, (req, res, ctx) => {
+    const checkoutInfo = req.body as CheckoutInfo;
+
+    // Move cart items into the order
+    const order: Order = {
+      id: uuidv4(),
+      createdAt: new Date().toISOString(),
+      items: mockDb.getCart().items,
+      shippingAddress: checkoutInfo.shippingAddress,
+    };
+    // @ts-ignore
+    mockOrders.push(order);
+
+    // clear the cart
+    mockDb.clearCart();
+
+    return res(ctx.status(200), ctx.json(order));
   }),
 ];
