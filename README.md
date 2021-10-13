@@ -102,15 +102,15 @@ yarn storybook
 
 ## Screenshots
 
-**Home page with item catalog and shopping cart**
+### Home Page
 
 ![Home Page](assets/screenshot-home.png)
 
-**Checkout page**
+## Checkout Page
 
 ![Checkout Page](assets/screenshot-checkout.png)
 
-**Order history page**
+## Order Page
 
 ![Orders Page](assets/screenshot-orders.png)
 
