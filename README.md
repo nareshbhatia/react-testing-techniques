@@ -106,11 +106,11 @@ yarn storybook
 
 ![Home Page](assets/screenshot-home.png)
 
-## Checkout Page
+### Checkout Page
 
 ![Checkout Page](assets/screenshot-checkout.png)
 
-## Order Page
+### Order Page
 
 ![Orders Page](assets/screenshot-orders.png)
 
