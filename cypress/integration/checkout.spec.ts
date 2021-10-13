@@ -1,11 +1,10 @@
 const address = {
   "firstName": "John",
   "lastName": "Smith",
-  "company": "Northeast Design",
   "address": "100 Federal Street",
   "city": "Boston",
   "state": "MA",
-  "zip": "02114"
+  "zip": "02110"
 };
 
 describe('Checkout workflow', function () {
@@ -41,7 +40,6 @@ describe('Checkout workflow', function () {
     // Fill in the address
     cy.get('input[name="shippingAddress.firstName"]').type(address.firstName);
     cy.get('input[name="shippingAddress.lastName"]').type(address.lastName);
-    cy.get('input[name="shippingAddress.company"]').type(address.company);
     cy.get('input[name="shippingAddress.address"]').type(address.address);
     cy.get('input[name="shippingAddress.city"]').type(address.city);
     cy.get('input[name="shippingAddress.state"]').type(address.state);

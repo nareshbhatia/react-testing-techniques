@@ -34,20 +34,18 @@ _This project was bootstrapped with
 
 ## Testing Topics
 
-- Structuring code for easier testing - pure JavaScript logic vs. React
-  components
+- Structuring code - JavaScript logic vs. React components
 - Snapshot testing vs. traditional unit testing
-- Suppressing console errors
+- Difference between queryBy, getBy and findBy queries
 - Checking for existence of an element
 - Waiting for removal of an element
 - Waiting for something to happen
-- User events (note how {selectall} works)
-- Mocking a callback (see ProductView test)
-- Use MSW instead of excessive mocking
-- Overriding MSW handlers (see CartView test)
-- Mocking MSW handlers (see CatalogView test)
-- Difference between queryBy, getBy and findBy
+- fireEvent() vs userEvent
+- Mocking an event handler (see ProductView test)
+- Using Mock Service Worker vs. Jest mocking
+- Overriding/mocking MSW handlers (see CartView & CatalogView tests)
 - Testing for page navigation
+- Suppressing console errors
 
 ## Getting Started
 
