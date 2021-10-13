@@ -2,13 +2,18 @@ import { OrderItem, OrderItemUtils } from './OrderItem';
 import { Product } from './Product';
 
 // ----------------------------------------------------------------------------
-// Cart is immutable.
-// Any function that alters a cart returns a new instance.
+// Cart contains a list of OrderItems.
 // ----------------------------------------------------------------------------
 export interface Cart {
   items: Array<OrderItem>;
 }
 
+// ----------------------------------------------------------------------------
+// Cart utility functions
+// These are pure functions with a deterministic output.
+// If the cart needs to be modified, a new instance is returned.
+// In other words, the Cart is immutable.
+// ----------------------------------------------------------------------------
 function total(cart: Cart): number {
   return OrderItemUtils.totalItems(cart.items);
 }
