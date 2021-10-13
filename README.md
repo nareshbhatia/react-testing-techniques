@@ -34,17 +34,15 @@ We use the following tools for testing:
 _This project was bootstrapped with
 [React Accelerate](https://github.com/PublicisSapient/cra-template-accelerate)._
 
-## Guiding Principles
+## Why do we write tests?
 
-Before discussing guiding principles, let's talk about why we write tests in the
-first place! For me, it is about building confidence in what I am delivering.
-Tests provide a mechanism to verify the intent of my code by exercising it in
-various ways. Moreover, they give me the confidence that I have not broken
-anything when I refactor or extend the code to meet new requirements. The last
-thing I want is to get a call at 3:00 AM to fix a bug that has crashed my app!
+For me, it is about building confidence in what I am delivering. Tests provide a
+mechanism to verify the intent of my code by exercising it in various ways.
+Moreover, they give me the confidence that I have not broken anything when I
+refactor or extend the code to meet new requirements. The last thing I want is
+to get a call at 3:00 AM to fix a bug that has crashed my app!
 
-Now that we have discussed the motivation behind testing, let's jump right into
-the guiding principles.
+## Guiding principles for writing tests
 
 ### Don't test implementation details
 
@@ -58,7 +56,7 @@ details in your tests. For more details, refer to
 [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
 by Kent C. Dodds.
 
-### Test your components as your user would
+### Test your components as a user would
 
 The traditional testing wisdom was to write a lot of unit tests to test
 individual "units". We used to isolate our components from their environment
@@ -81,24 +79,23 @@ real user interactions. Or you may use [Mock Service Worker](https://mswjs.io/)
 to mock APIs at the network level rather than mocking at the component or
 service layer.
 
-### Don't focus on code coverage
+### Don't be obsessed with code coverage
 
-Some organizations put undue focus on code coverage for applications, mandating
-a high number as the threshold. Unfortunately this set the wrong goal for
-developers because beyond a certain point, the returns are not worth the effort.
-You start seeing developers gaming the system by writing meaningless tests.
-Instead, the focus should be on use case coverage. Think of all the use cases
-(including corner cases) that you want to test to feel confident about your code
-quality. This approach will automatically yield high code coverage.
+There is a tradeoff between time spent writing tests and code coverage. Some
+organizations put undue focus on code coverage. Unfortunately this set the wrong
+goal for developers because after a certain point, the returns are not worth the
+effort. You start seeing developers gaming the system by writing meaningless
+tests. Instead, the focus should be on _use case coverage_. Think of all the use
+cases (including corner cases) that you want to test to feel confident about
+your code. This approach will automatically yield high code coverage.
 
-### Structuring code - Pure functions vs. UI components
+### Push business logic into pure functions vs. UI components
 
-Structure your code so that business logic is pushed into pure JavaScript
-functions as opposed to UI components. A pure function is a function where the
-return value is only determined by its input values, without observable side
-effects. Such functionality should not be embedded in UI components because it
-becomes harder to test. See [here](./src/models/Cart.ts) for an example for pure
-functions and [the related tests](./src/models/Cart.test.ts).
+For example, a Shopping Cart UI component should not compute the cart total.
+This should be pushed to a
+[pure function](https://en.wikipedia.org/wiki/Pure_function) because it is
+easier to test. See [here](./src/models/Cart.ts) for examples for pure functions
+and [related tests](./src/models/Cart.test.ts).
 
 ### Snapshot testing vs. traditional unit testing
 
