@@ -1,7 +1,9 @@
 # React Testing Techniques
 
-This project implements an online shopping application to show techniques used
-to test React applications. We use the following tools for testing:
+This project demonstrates best practices in testing React applications by
+implementing a realistic online shopping application.
+
+We use the following tools for testing:
 
 **Unit Testing**
 
@@ -34,7 +36,8 @@ _This project was bootstrapped with
 
 ## Testing Topics
 
-- Structuring code - JavaScript logic vs. React components
+- Guiding principles
+- Structuring code - Pure JavaScript functions vs. React components
 - Snapshot testing vs. traditional unit testing
 - Difference between queryBy, getBy and findBy queries
 - Checking for existence of an element
@@ -110,3 +113,36 @@ yarn storybook
 **Order history page**
 
 ![Orders Page](assets/screenshot-orders.png)
+
+## References
+
+### Testing Best Practices
+
+- [How to know what to test](https://kentcdodds.com/blog/how-to-know-what-to-test)
+- [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
+- [Write fewer, longer tests](https://kentcdodds.com/blog/write-fewer-longer-tests)
+- [Making your UI tests resilient to change](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change)
+- [Testing Implementation Details](https://kentcdodds.com/blog/testing-implementation-details)
+
+### Jest
+
+- [Documentation](https://jestjs.io/docs/getting-started)
+
+### React Testing Library
+
+- [Introduction](https://testing-library.com/docs/)
+- [Guiding Principles](https://testing-library.com/docs/guiding-principles)
+- [Example](https://testing-library.com/docs/react-testing-library/example-intro)
+- [Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
+
+### Storybook
+
+- [Introduction to Storybook](https://storybook.js.org/docs/react/get-started/introduction)
+
+### Mock Service Worker
+
+- [Documentation](https://mswjs.io/docs/)
+
+### Cypress
+
+- [Documentation](https://docs.cypress.io/guides/overview/why-cypress)
