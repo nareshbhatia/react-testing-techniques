@@ -46,10 +46,11 @@ to get a call at 3:00 AM to fix a bug that has crashed my app!
 
 The principles listed in this section are based on an article by Kent C. Dodds
 titled
-[Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests).
+[Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
 Kent is a testing guru with very good guidance on how to test. I have listed
-several more of his useful articles in the references below. So without further
-ado, let's jump in.
+several of his useful articles in the references below.
+
+So without further ado, let's jump into the guiding principles.
 
 ### Don't test implementation details
 
@@ -93,14 +94,14 @@ tests. Instead, focus on _use case coverage_. Think of all the use cases
 (including corner cases) that you want to test to feel confident about your
 code. This approach will automatically yield high code coverage.
 
-### Push business logic into pure functions instead of UI components
+### Push business logic into pure functions rather than UI components
 
 For example, a Shopping Cart UI component should not compute the cart total.
 This should be pushed to a
 [pure function](https://en.wikipedia.org/wiki/Pure_function) because it is
 easier to test. Even better, push it off to the back-end where more
-sophisticated calculations can be performed without affecting the UI. See
-[here](./src/models/Cart.ts) for examples for pure functions and
+sophisticated calculations can be performed without complicating the UI. See
+[here](./src/models/Cart.ts) for examples for pure functions and the
 [related tests](./src/models/Cart.test.ts).
 
 ## Techniques
