@@ -1,10 +1,10 @@
 const address = {
-  "firstName": "John",
-  "lastName": "Smith",
-  "address": "100 Federal Street",
-  "city": "Boston",
-  "state": "MA",
-  "zip": "02110"
+  firstName: 'John',
+  lastName: 'Smith',
+  address: '100 Federal Street',
+  city: 'Boston',
+  state: 'MA',
+  zip: '02110',
 };
 
 describe('Checkout workflow', function () {

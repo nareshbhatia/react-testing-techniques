@@ -44,28 +44,32 @@ to get a call at 3:00 AM to fix a bug that has crashed my app!
 
 ## Guiding principles for writing tests
 
+The principles listed in this section are based on an article by Kent C. Dodds
+titled
+[Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests).
+Kent is a testing guru with very good guidance on how to test. I have listed
+several more of his useful articles in the references below. So without further
+ado, let's jump in.
+
 ### Don't test implementation details
 
-If your test does something that the consumer of your code doesn't, chances are
-that you are testing implementation details. For example, you may be exposing a
-private function just to test your component. This is a code smell, don't do
-it - a refactor can easily break your tests. Steer away from testing tools that
-allow you to test implementation details (e.g. Enzyme). Instead, use tools such
-as React Testing Library which make it very difficult to include implementation
-details in your tests. For more details, refer to
-[Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
-by Kent C. Dodds.
+If your test does something that your user doesn't, chances are that you are
+testing implementation details. For example, you may be exposing a private
+function just to test your component. This is a code smell, don't do it - a
+refactor can easily break your test. Steer away from testing tools that allow
+you to test implementation details (e.g. Enzyme). Instead, use tools such as
+React Testing Library that make it difficult to include implementation details
+in your tests. For more details, refer to
 
 ### Test your components as a user would
 
-The traditional testing wisdom was to write a lot of unit tests to test
-individual "units". We used to isolate our components from their environment
-using mocks. This approach still makes sense to test pure functions where the
-output is strictly based on its input. However, for front-end components which
-depend on communicating with their surrounding components, mocking reduces our
-confidence in the integrations. The latest thinking is to test several units
-together to recreate real interaction scenarios, hence the name _integration
-testing_.
+The classic testing wisdom was to write a lot of unit tests to test individual
+"units" of code. We used to isolate our components from their environment using
+mocks. This approach still makes sense for pure functions, but for front-end
+components, which depend on communications with surrounding components, mocking
+reduces our confidence in their integrations. So the latest thinking is to test
+several units together to recreate real interaction scenarios, hence the name
+_integration testing_.
 
 This brings us to the guiding principle which is the foundation of the React
 Testing Library:
@@ -73,48 +77,35 @@ Testing Library:
 > The more your tests resemble the way your software is used, the more
 > confidence they can give you.
 
-This translates to writing more "integration" style tests where, for example,
-you may want to drop a couple of components under a `<Context.Provider>` to test
-real user interactions. Or you may use [Mock Service Worker](https://mswjs.io/)
-to mock APIs at the network level rather than mocking at the component or
+This translates to writing more _integration_ style tests where, for example,
+you drop a couple of components under a `<Context.Provider>` to test real user
+interactions. Or you may use [Mock Service Worker](https://mswjs.io/) to mock
+APIs at the network level rather than excessively mocking at the component or
 service layer.
 
 ### Don't be obsessed with code coverage
 
 There is a tradeoff between time spent writing tests and code coverage. Some
-organizations put undue focus on code coverage. Unfortunately this set the wrong
-goal for developers because after a certain point, the returns are not worth the
+organizations put undue focus on code coverage. Unfortunately this sets the
+wrong goal for developers - after a certain point, the returns are not worth the
 effort. You start seeing developers gaming the system by writing meaningless
-tests. Instead, the focus should be on _use case coverage_. Think of all the use
-cases (including corner cases) that you want to test to feel confident about
-your code. This approach will automatically yield high code coverage.
+tests. Instead, focus on _use case coverage_. Think of all the use cases
+(including corner cases) that you want to test to feel confident about your
+code. This approach will automatically yield high code coverage.
 
-### Push business logic into pure functions vs. UI components
+### Push business logic into pure functions instead of UI components
 
 For example, a Shopping Cart UI component should not compute the cart total.
 This should be pushed to a
 [pure function](https://en.wikipedia.org/wiki/Pure_function) because it is
-easier to test. See [here](./src/models/Cart.ts) for examples for pure functions
-and [related tests](./src/models/Cart.test.ts).
-
-### Snapshot testing vs. traditional unit testing
-
-Use snapshot tests only for small focused components where the snapshots can be
-easily read and verified for correctness (usually 20-30 lines max). For larger
-snapshots, developers tend to be undisciplined about reviewing them before
-committing, resulting in buggy code to be committed. Moreover, good tests encode
-the developer's intention. Snapshot tests lack the expression of this intent. So
-for anything beyond the simplest of components, prefer a traditional unit test.
-
-Note: If you need to write a snapshot test, I recommend using
-react-testing-library because it generates cleaner snapshots. The other popular
-way of generating snapshots is react-test-renderer, but its output contains
-component properties and other details that are not relevant. Here's an
-[example of a snapshot test](./src/pages/NotFoundPage/NotFoundPage.test.tsx)
-using react-testing-library.
+easier to test. Even better, push it off to the back-end where more
+sophisticated calculations can be performed without affecting the UI. See
+[here](./src/models/Cart.ts) for examples for pure functions and
+[related tests](./src/models/Cart.test.ts).
 
 ## Techniques
 
+- [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
 - [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
 - Checking for existence of an element
 - Waiting for removal of an element
