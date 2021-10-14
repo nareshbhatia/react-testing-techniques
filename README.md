@@ -17,7 +17,7 @@ We use the following tools for testing:
   intercepting requests at the network level. It allows us to reuse the same
   mock definition for testing, development, and debugging.
 
-**Integration Testing**
+**End-to-End Testing**
 
 - [Cypress](https://www.cypress.io/) - a testing framework for fully built Web
   applications running in a browser
