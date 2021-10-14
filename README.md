@@ -36,11 +36,11 @@ _This project was bootstrapped with
 
 ## Why do we write tests?
 
-For me, it is about building confidence in what I am delivering. Tests provide a
-mechanism to verify the intent of my code by exercising it in various ways.
-Moreover, they give me the confidence that I have not broken anything when I
-refactor or extend the code to meet new requirements. The last thing I want is
-to get a call at 3:00 AM to fix a bug that has crashed my app!
+For me, writing tests is about building confidence in what I am delivering.
+Tests provide a mechanism to verify the intent of my code by exercising it in
+various ways. Moreover, they give me the confidence that I have not broken
+anything when I refactor or extend the code to meet new requirements. The last
+thing I want is to get a call at 3:00 AM to fix a bug that has crashed my app!
 
 ## Guiding principles for writing tests
 
@@ -56,17 +56,16 @@ So without further ado, let's jump into the guiding principles.
 
 If your test does something that your user doesn't, chances are that you are
 testing implementation details. For example, you may be exposing a private
-function just to test your component. This is a code smell, don't do it - a
-refactor can easily break your test. Steer away from testing tools that allow
-you to test implementation details (e.g. Enzyme). Instead, use tools such as
-React Testing Library that make it difficult to include implementation details
-in your tests. For more details, refer to
+function just to test your component. This is a code smell – don't do it. A
+refactor can easily break your test. So stay away from testing tools that allow
+you to test implementation details (e.g. Enzyme), and instead use tools that
+make it harder (e.g. [React Testing Library](https://testing-library.com/)).
 
 ### Test your components as a user would
 
 The classic testing wisdom was to write a lot of unit tests to test individual
 "units" of code. We used to isolate our components from their environment using
-mocks. This approach still makes sense for pure functions, but for front-end
+mocks. This approach still makes sense for pure functions, but for UI
 components, which depend on communications with surrounding components, mocking
 reduces our confidence in their integrations. So the latest thinking is to test
 several units together to recreate real interaction scenarios, hence the name
@@ -78,9 +77,8 @@ Testing Library:
 > The more your tests resemble the way your software is used, the more
 > confidence they can give you.
 
-This translates to writing more _integration_ style tests where, for example,
-you drop a couple of components under a `<Context.Provider>` to test real user
-interactions. Or you may use [Mock Service Worker](https://mswjs.io/) to mock
+For example, drop a couple of components under a `<Context.Provider>` to test
+real user interactions. Or use [Mock Service Worker](https://mswjs.io/) to mock
 APIs at the network level rather than excessively mocking at the component or
 service layer.
 
