@@ -47,8 +47,8 @@ thing I want is to get a call at 3:00 AM to fix a bug that has crashed my app!
 The principles listed in this section are based on an article by Kent C. Dodds
 titled
 [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
-Kent is a testing guru with very good guidance on how to test. I have listed
-several of his useful articles in the references below.
+Kent is a testing guru with very good guidance on how to test effectively. I
+have listed several of his useful articles in the references below.
 
 So without further ado, let's jump into the guiding principles.
 
@@ -176,7 +176,7 @@ yarn storybook
 
 ![Checkout Page](assets/screenshot-checkout.png)
 
-### Order Page
+### Orders Page
 
 ![Orders Page](assets/screenshot-orders.png)
 
