@@ -5,7 +5,7 @@ implementing a realistic online shopping application.
 
 We use the following tools for testing:
 
-**Unit Testing**
+**Unit & Integration Testing**
 
 - [Jest](https://jestjs.io/) - a testing framework designed to ensure
   correctness of any JavaScript or TypeScript codebase
@@ -106,8 +106,8 @@ sophisticated calculations can be performed without complicating the UI. See
 
 - [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
 - [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
-- Checking for existence of an element
-- Waiting for removal of an element
+- [Checking for existence of an element](./docs/checking-for-existence-of-an-element.md)
+- [Waiting for removal of an element](./docs/waiting-for-removal-of-an-element.md)
 - Waiting for something to happen
 - fireEvent() vs userEvent
 - Mocking an event handler (see ProductView test)
