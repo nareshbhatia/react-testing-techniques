@@ -3,7 +3,6 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-import { QueryCache } from 'react-query';
 import { MOCK_API_URL } from './mocks/constants';
 import { server } from './mocks/server';
 
@@ -23,10 +22,3 @@ afterEach(() => server.resetHandlers());
 
 // Clean up after the tests are finished.
 afterAll(() => server.close());
-
-// ----- Clear React Query's cache after each test -----
-const queryCache = new QueryCache();
-
-afterEach(() => {
-  queryCache.clear();
-});

@@ -5,7 +5,11 @@ import { Route, Routes } from 'react-router-dom';
 import { MOCK_API_URL } from '../../../mocks/constants';
 import { server } from '../../../mocks/server';
 import { CartUtils } from '../../../models';
-import { render, waitFor } from '../../../test/test-utils';
+import {
+  render,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '../../../test/test-utils';
 import { CartView } from './CartView';
 
 const START_ORDER = 'Please click on a product to start your order.';
@@ -103,13 +107,9 @@ describe('<CartView />', () => {
       })
     );
 
-    const {
-      findAllByTestId,
-      findByTestId,
-      findByText,
-      getByText,
-      queryByText,
-    } = render(<CartView />);
+    const { findAllByTestId, findByTestId, findByText, getByText } = render(
+      <CartView />
+    );
 
     // wait for Checkout button to render
     await findByText('Checkout');
@@ -120,20 +120,13 @@ describe('<CartView />', () => {
     userEvent.click(deleteButtons[0]);
 
     // wait for 'iMac' to disappear
-    // TODO: waitForElementToBeRemoved times out even though the element is removed!!!
-    // await waitForElementToBeRemoved(queryByText('iMac'));
+    await waitForElementToBeRemoved(() => getByText('iMac'));
 
-    // wait for 1 item to remain
+    // only 1 item should remain
     const orderItemTable = await findByTestId('order-items');
-    await waitFor(() =>
-      expect(orderItemTable.querySelectorAll('tbody tr').length).toBe(1)
-    );
+    expect(orderItemTable.querySelectorAll('tbody tr').length).toBe(1);
 
-    // 'iMac' should not exist
-    const iMac = queryByText('iMac');
-    expect(iMac).toBeNull();
-
-    // 'MacBook Pro' should exist
+    // the remaining item should be 'MacBook Pro'
     const macbookPro = getByText('MacBook Pro');
     expect(macbookPro).toBeInTheDocument();
   });
@@ -156,20 +149,15 @@ describe('<CartView />', () => {
       })
     );
 
-    const { getAllByTestId, queryAllByTestId } = render(<CartView />);
+    const { findAllByTestId, getAllByTestId } = render(<CartView />);
 
     // wait for 2 items to render
-    // TODO: This was needed because of some interference with the earlier test.
-    // That test was resulting in only 1 item to be rendered even though I have
-    // server.use() in this test to return 2 items.
-    await waitFor(() =>
-      expect(queryAllByTestId('quantity-input').length).toBe(2)
-    );
+    const quantityInputs = await findAllByTestId('quantity-input');
+    expect(quantityInputs).toHaveLength(2);
 
     // change iMac quantity to 2
     // Note the use of {selectall} - without this 2 will be simply
     // appended to the existing quantity, resulting in 12.
-    const quantityInputs = getAllByTestId('quantity-input');
     userEvent.type(quantityInputs[0], '{selectall}2');
 
     // wait for price of iMac line item to change

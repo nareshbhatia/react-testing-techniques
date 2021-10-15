@@ -12,10 +12,7 @@ describe('<OrdersPage />', () => {
   });
 
   test('renders correctly (using waitForElementToBeRemoved)', async () => {
-    const { findByText, getAllByTestId, getByText } = render(<OrdersPage />);
-    // TODO: findByText should not be needed because "Loading..." should appear right away
-    await findByText('Loading...');
-    // TODO: waitForElementToBeRemoved errors out
+    const { getAllByTestId, getByText } = render(<OrdersPage />);
     await waitForElementToBeRemoved(getByText('Loading...'));
     expect(getAllByTestId('order-view')).toHaveLength(4);
   });

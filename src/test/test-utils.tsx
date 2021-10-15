@@ -14,17 +14,24 @@ import { EnvProvider } from '../contexts';
 // https://testing-library.com/docs/react-testing-library/setup/#custom-render
 // -----------------------------------------------------------------------------
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      // force queries to fail fast during tests, otherwise jest and
-      // React Testing Library will hit their timeouts
-      retry: false,
-    },
-  },
-});
-
 const AllProviders: React.FC = ({ children }) => {
+  // Create a new QueryClient for each test. QueryClient holds its own
+  // instance of QueryCache. This way, tests are completely isolated
+  // from each other.
+  //
+  // Another approach might be to clear the QueryCache after each test,
+  // but that could be a little risky in case some state is inadvertently
+  // shared, e.g., if the tests are run in parallel.
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // force queries to fail fast during tests, otherwise jest and
+        // React Testing Library will hit their timeouts
+        retry: false,
+      },
+    },
+  });
+
   return (
     <Suspense fallback={<Loading />}>
       <ErrorBoundary>
