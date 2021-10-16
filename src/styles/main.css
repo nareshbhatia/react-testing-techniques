@@ -270,6 +270,10 @@ tfoot {
   margin-top: var(--sp-4);
 }
 
+.mt-5 {
+  margin-top: var(--sp-5);
+}
+
 .mb-0 {
   margin-bottom: 0;
 }
@@ -288,6 +292,10 @@ tfoot {
 
 .mb-4 {
   margin-bottom: var(--sp-4);
+}
+
+.mb-5 {
+  margin-bottom: var(--sp-5);
 }
 
 .ml-0 {
