@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { MOCK_API_URL } from '../../mocks/constants';
 import mockOrders from '../../mocks/mockOrders.json';
 import { server } from '../../mocks/server';
-import { render, waitFor } from '../../test/test-utils';
+import { render, screen, waitFor } from '../../test/test-utils';
 import { CheckoutPage } from './CheckoutPage';
 import { CheckoutInfo, Order } from '../../models';
 
@@ -34,17 +34,20 @@ describe('<CheckoutPage />', () => {
       })
     );
 
-    const { getByLabelText, getByText } = render(<CheckoutPage />);
+    render(<CheckoutPage />);
 
     // Enter shipping address and place order
-    userEvent.type(getByLabelText('First name'), address.firstName);
-    userEvent.type(getByLabelText('Last name'), address.lastName);
-    userEvent.type(getByLabelText('Company (optional)'), address.company);
-    userEvent.type(getByLabelText('Address'), address.address);
-    userEvent.type(getByLabelText('City'), address.city);
-    userEvent.type(getByLabelText('State'), address.state);
-    userEvent.type(getByLabelText('Zip'), address.zip);
-    userEvent.click(getByText('Place your order'));
+    userEvent.type(screen.getByLabelText('First name'), address.firstName);
+    userEvent.type(screen.getByLabelText('Last name'), address.lastName);
+    userEvent.type(
+      screen.getByLabelText('Company (optional)'),
+      address.company
+    );
+    userEvent.type(screen.getByLabelText('Address'), address.address);
+    userEvent.type(screen.getByLabelText('City'), address.city);
+    userEvent.type(screen.getByLabelText('State'), address.state);
+    userEvent.type(screen.getByLabelText('Zip'), address.zip);
+    userEvent.click(screen.getByText('Place your order'));
 
     // expect create order API to be called
     await waitFor(() => expect(handleShippingAddress).toBeCalledTimes(1));

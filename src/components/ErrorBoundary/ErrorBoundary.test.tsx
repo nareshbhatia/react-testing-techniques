@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ErrorBoundary } from './ErrorBoundary';
 
 beforeEach(() => {
@@ -30,13 +30,13 @@ const Child = ({ shouldThrow }: ChildProps) => {
 
 describe('<ErrorBoundary />', () => {
   test('renders its child when there is no error', () => {
-    const { queryByText } = render(
+    render(
       <ErrorBoundary>
         <Child />
       </ErrorBoundary>
     );
-    expect(queryByText(goodBoyText)).toBeInTheDocument();
-    expect(queryByText(badBoyText)).not.toBeInTheDocument();
+    expect(screen.queryByText(goodBoyText)).toBeInTheDocument();
+    expect(screen.queryByText(badBoyText)).not.toBeInTheDocument();
 
     // By mocking out console.error we may inadvertently miss out on
     // logs due to real errors. Let's reduce that likelihood by adding
@@ -45,26 +45,26 @@ describe('<ErrorBoundary />', () => {
   });
 
   test('renders the fallback UI when the child throws an error', () => {
-    const { queryByText } = render(
+    render(
       <ErrorBoundary>
         <Child shouldThrow={true} />
       </ErrorBoundary>
     );
-    expect(queryByText(goodBoyText)).not.toBeInTheDocument();
-    expect(queryByText(badBoyText)).toBeInTheDocument();
+    expect(screen.queryByText(goodBoyText)).not.toBeInTheDocument();
+    expect(screen.queryByText(badBoyText)).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledTimes(2);
   });
 
   test('logs the error when the child throws an error', () => {
     const logError = jest.fn();
 
-    const { queryByText } = render(
+    render(
       <ErrorBoundary logError={logError}>
         <Child shouldThrow={true} />
       </ErrorBoundary>
     );
-    expect(queryByText(goodBoyText)).not.toBeInTheDocument();
-    expect(queryByText(badBoyText)).toBeInTheDocument();
+    expect(screen.queryByText(goodBoyText)).not.toBeInTheDocument();
+    expect(screen.queryByText(badBoyText)).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledTimes(2);
     expect(logError).toHaveBeenCalledTimes(1);
   });

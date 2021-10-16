@@ -7,6 +7,7 @@ import { server } from '../../../mocks/server';
 import { CartUtils } from '../../../models';
 import {
   render,
+  screen,
   waitFor,
   waitForElementToBeRemoved,
 } from '../../../test/test-utils';
@@ -37,14 +38,14 @@ const MockCheckoutPage = () => {
 
 describe('<CartView />', () => {
   test('renders correctly with no order items', async () => {
-    const { findByText, queryByText } = render(<CartView />);
+    render(<CartView />);
 
     // start order message should exist
-    const startOrderMessage = await findByText(START_ORDER);
+    const startOrderMessage = await screen.findByText(START_ORDER);
     expect(startOrderMessage).toBeInTheDocument();
 
     // checkout button should not exist
-    const checkoutButton = queryByText('Checkout');
+    const checkoutButton = screen.queryByText('Checkout');
     expect(checkoutButton).toBeNull();
   });
 
@@ -56,18 +57,18 @@ describe('<CartView />', () => {
       })
     );
 
-    const { findByTestId, findByText, queryByText } = render(<CartView />);
+    render(<CartView />);
 
     // checkout button should exist
-    const checkoutButton = await findByText('Checkout');
+    const checkoutButton = await screen.findByText('Checkout');
     expect(checkoutButton).not.toBeNull();
 
     // start order message should not exist
-    const startOrderMessage = queryByText(START_ORDER);
+    const startOrderMessage = screen.queryByText(START_ORDER);
     expect(startOrderMessage).toBeNull();
 
     // 2 order items should exist
-    const orderItemTable = await findByTestId('order-items');
+    const orderItemTable = await screen.findByTestId('order-items');
     const orderItems = orderItemTable.querySelectorAll('tbody tr');
     expect(orderItems.length).toBe(2);
   });
@@ -83,8 +84,8 @@ describe('<CartView />', () => {
     // Suppress console errors
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { findByText } = render(<CartView />);
-    const errorMessage = await findByText(/404/);
+    render(<CartView />);
+    const errorMessage = await screen.findByText(/404/);
     expect(errorMessage).toBeInTheDocument();
 
     jest.restoreAllMocks();
@@ -107,27 +108,25 @@ describe('<CartView />', () => {
       })
     );
 
-    const { findAllByTestId, findByTestId, findByText, getByText } = render(
-      <CartView />
-    );
+    render(<CartView />);
 
     // wait for Checkout button to render
-    await findByText('Checkout');
+    await screen.findByText('Checkout');
 
     // delete the first item from the order
-    const deleteButtons = await findAllByTestId('delete-button');
+    const deleteButtons = await screen.findAllByTestId('delete-button');
     expect(deleteButtons.length).toBe(2);
     userEvent.click(deleteButtons[0]);
 
     // wait for 'iMac' to disappear
-    await waitForElementToBeRemoved(() => getByText('iMac'));
+    await waitForElementToBeRemoved(() => screen.getByText('iMac'));
 
     // only 1 item should remain
-    const orderItemTable = await findByTestId('order-items');
+    const orderItemTable = await screen.findByTestId('order-items');
     expect(orderItemTable.querySelectorAll('tbody tr').length).toBe(1);
 
     // the remaining item should be 'MacBook Pro'
-    const macbookPro = getByText('MacBook Pro');
+    const macbookPro = screen.getByText('MacBook Pro');
     expect(macbookPro).toBeInTheDocument();
   });
 
@@ -149,10 +148,10 @@ describe('<CartView />', () => {
       })
     );
 
-    const { findAllByTestId, getAllByTestId } = render(<CartView />);
+    render(<CartView />);
 
     // wait for 2 items to render
-    const quantityInputs = await findAllByTestId('quantity-input');
+    const quantityInputs = await screen.findAllByTestId('quantity-input');
     expect(quantityInputs).toHaveLength(2);
 
     // change iMac quantity to 2
@@ -161,7 +160,7 @@ describe('<CartView />', () => {
     userEvent.type(quantityInputs[0], '{selectall}2');
 
     // wait for price of iMac line item to change
-    const priceCells = getAllByTestId('price-cell');
+    const priceCells = screen.getAllByTestId('price-cell');
     await waitFor(() => expect(priceCells[0].textContent).toBe('2,598.00'));
   });
 
@@ -176,7 +175,7 @@ describe('<CartView />', () => {
       })
     );
 
-    const { findByText } = render(
+    render(
       <Routes>
         <Route path="/" element={<CartView />} />
         <Route path="/checkout" element={<MockCheckoutPage />} />
@@ -184,11 +183,11 @@ describe('<CartView />', () => {
     );
 
     // click on Checkout button
-    const checkoutButton = await findByText('Checkout');
+    const checkoutButton = await screen.findByText('Checkout');
     userEvent.click(checkoutButton);
 
     // expect checkout page to be rendered
-    const checkoutPageTitle = await findByText('Checkout Page');
+    const checkoutPageTitle = await screen.findByText('Checkout Page');
     expect(checkoutPageTitle).toBeInTheDocument();
   });
 });

@@ -1,15 +1,15 @@
 import React from 'react';
 import mockOrders from '../../mocks/mockOrders.json';
-import { render } from '../../test/test-utils';
+import { render, screen } from '../../test/test-utils';
 import { OrderView } from './OrderView';
 
 describe('<OrderItemList />', () => {
   test('renders correctly', async () => {
-    const { getByText } = render(<OrderView order={mockOrders[0]} />);
+    render(<OrderView order={mockOrders[0]} />);
 
     // since the child components are tested thoroughly, just look for their presence
-    expect(getByText('Elon Musk')).toBeInTheDocument();
-    expect(getByText('01/01/2021')).toBeInTheDocument();
-    expect(getByText('Total')).toBeInTheDocument();
+    expect(screen.getByText('Elon Musk')).toBeInTheDocument();
+    expect(screen.getByText('01/01/2021')).toBeInTheDocument();
+    expect(screen.getByText('Total')).toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from '../../test/test-utils';
+import { render, screen } from '../../test/test-utils';
 import { mockCatalog } from '../../mocks/mockCatalog';
 import { Product } from '../../models';
 import { ProductView } from './ProductView';
@@ -17,12 +17,10 @@ describe('<ProductView />', () => {
   });
 
   test('when clicked, calls onClick with productId', async () => {
-    const { getByTestId } = render(
-      <ProductView product={product} onClick={handleClick} />
-    );
+    render(<ProductView product={product} onClick={handleClick} />);
 
     // click on the ProductView
-    userEvent.click(getByTestId('product'));
+    userEvent.click(screen.getByTestId('product'));
 
     // expect mock handler to be called
     expect(handleClick).toBeCalledTimes(1);

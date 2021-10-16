@@ -1,6 +1,6 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -41,10 +41,6 @@ function TestForm({ onSubmit }: TestFormProps) {
 
 // ---------- Tests ----------
 const handleSubmit = jest.fn();
-// const handleSubmit = (checkoutInfo: CheckoutInfo) => {
-//     console.log(checkoutInfo);
-//     console.log({ shippingAddress: address });
-// };
 
 const address = mockOrders[0].shippingAddress;
 
@@ -54,32 +50,31 @@ beforeEach(() => {
 
 describe('<AddressForm />', () => {
   test('displays a validation error if validation fails', async () => {
-    const { findAllByText, getByLabelText, getByText } = render(
-      <TestForm onSubmit={handleSubmit} />
-    );
+    render(<TestForm onSubmit={handleSubmit} />);
 
     // Submit form with only firstName filled
-    userEvent.type(getByLabelText('First name'), 'John');
-    userEvent.click(getByText('Submit'));
+    userEvent.type(screen.getByLabelText('First name'), 'John');
+    userEvent.click(screen.getByText('Submit'));
 
     // Expect to see a validation errors
-    expect(await findAllByText('Field is required')).toHaveLength(5);
+    expect(await screen.findAllByText('Field is required')).toHaveLength(5);
   });
 
   test('submits form information if all validations pass', async () => {
-    const { getByLabelText, getByText } = render(
-      <TestForm onSubmit={handleSubmit} />
-    );
+    render(<TestForm onSubmit={handleSubmit} />);
 
     // Enter valid information and submit form
-    userEvent.type(getByLabelText('First name'), address.firstName);
-    userEvent.type(getByLabelText('Last name'), address.lastName);
-    userEvent.type(getByLabelText('Company (optional)'), address.company);
-    userEvent.type(getByLabelText('Address'), address.address);
-    userEvent.type(getByLabelText('City'), address.city);
-    userEvent.type(getByLabelText('State'), address.state);
-    userEvent.type(getByLabelText('Zip'), address.zip);
-    userEvent.click(getByText('Submit'));
+    userEvent.type(screen.getByLabelText('First name'), address.firstName);
+    userEvent.type(screen.getByLabelText('Last name'), address.lastName);
+    userEvent.type(
+      screen.getByLabelText('Company (optional)'),
+      address.company
+    );
+    userEvent.type(screen.getByLabelText('Address'), address.address);
+    userEvent.type(screen.getByLabelText('City'), address.city);
+    userEvent.type(screen.getByLabelText('State'), address.state);
+    userEvent.type(screen.getByLabelText('Zip'), address.zip);
+    userEvent.click(screen.getByText('Submit'));
 
     // Expect handleSubmit to be called with the entered information
     await waitFor(() => expect(handleSubmit).toHaveBeenCalledTimes(1));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { EnvProvider, useEnv } from './EnvContext';
 
 // Set username in window environment
@@ -15,11 +15,11 @@ const Child = () => {
 
 describe('EnvContext', () => {
   it('return value if environment variable exists', () => {
-    const { getByText } = render(
+    render(
       <EnvProvider>
         <Child />
       </EnvProvider>
     );
-    expect(getByText('Welcome John Smith')).toBeInTheDocument();
+    expect(screen.getByText('Welcome John Smith')).toBeInTheDocument();
   });
 });

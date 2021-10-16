@@ -3,17 +3,17 @@ import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { MOCK_API_URL } from '../../../mocks/constants';
 import { server } from '../../../mocks/server';
-import { render, waitFor } from '../../../test/test-utils';
+import { render, screen, waitFor } from '../../../test/test-utils';
 import { CatalogView } from './CatalogView';
 
 const addProduct = jest.fn();
 
 describe('<CatalogView />', () => {
   test('renders correctly', async () => {
-    const { findAllByTestId } = render(<CatalogView />);
+    render(<CatalogView />);
 
     // expect 16 products
-    const products = await findAllByTestId('product');
+    const products = await screen.findAllByTestId('product');
     expect(products.length).toBe(16);
   });
 
@@ -28,8 +28,8 @@ describe('<CatalogView />', () => {
     // Suppress console errors
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { findByText } = render(<CatalogView />);
-    const errorMessage = await findByText(/404/);
+    render(<CatalogView />);
+    const errorMessage = await screen.findByText(/404/);
     expect(errorMessage).toBeInTheDocument();
 
     jest.restoreAllMocks();
@@ -45,10 +45,10 @@ describe('<CatalogView />', () => {
       })
     );
 
-    const { findAllByTestId } = render(<CatalogView />);
+    render(<CatalogView />);
 
     // click on the first product
-    const products = await findAllByTestId('product');
+    const products = await screen.findAllByTestId('product');
     userEvent.click(products[0]);
 
     // expect product to be added to the cart
