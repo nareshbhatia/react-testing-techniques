@@ -1,5 +1,6 @@
 import React from 'react';
 import { StringUtils } from '../../utils';
+import { ViewCenteredContainer } from '../Containers';
 
 export interface ErrorFallbackComponentProps {
   error: any;
@@ -12,8 +13,8 @@ export const ErrorFallbackComponent = ({
   error,
 }: ErrorFallbackComponentProps) => {
   return (
-    <main>
-      <h1>{StringUtils.errorToString(error)}</h1>
-    </main>
+    <ViewCenteredContainer data-testid="error-fallback" className="p-2">
+      <h1 className="title">{StringUtils.errorToString(error)}</h1>
+    </ViewCenteredContainer>
   );
 };
