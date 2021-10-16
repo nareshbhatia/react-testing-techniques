@@ -2,19 +2,23 @@ import React from 'react';
 import { rest } from 'msw';
 import { MOCK_API_URL } from '../../mocks/constants';
 import { server } from '../../mocks/server';
-import { render, waitForElementToBeRemoved } from '../../test/test-utils';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '../../test/test-utils';
 import { OrdersPage } from './OrdersPage';
 
 describe('<OrdersPage />', () => {
   test('renders correctly', async () => {
-    const { findAllByTestId } = render(<OrdersPage />);
-    expect(await findAllByTestId('order-view')).toHaveLength(4);
+    render(<OrdersPage />);
+    expect(await screen.findAllByTestId('order-view')).toHaveLength(4);
   });
 
   test('renders correctly (using waitForElementToBeRemoved)', async () => {
-    const { getAllByTestId, getByText } = render(<OrdersPage />);
-    await waitForElementToBeRemoved(getByText('Loading...'));
-    expect(getAllByTestId('order-view')).toHaveLength(4);
+    render(<OrdersPage />);
+    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+    expect(screen.getAllByTestId('order-view')).toHaveLength(4);
   });
 
   test('renders an error if fetching of the orders fails', async () => {
@@ -28,8 +32,8 @@ describe('<OrdersPage />', () => {
     // Suppress console errors
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { findByText } = render(<OrdersPage />);
-    const errorMessage = await findByText(/404/);
+    render(<OrdersPage />);
+    const errorMessage = await screen.findByText(/404/);
     expect(errorMessage).toBeInTheDocument();
 
     jest.restoreAllMocks();
