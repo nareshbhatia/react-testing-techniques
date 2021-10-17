@@ -33,7 +33,7 @@ function TestForm({ onSubmit }: TestFormProps) {
       <TextField
         id="firstName"
         {...register('firstName')}
-        label="First"
+        label="First name"
         error={errors.firstName?.message}
       />
 
@@ -41,7 +41,7 @@ function TestForm({ onSubmit }: TestFormProps) {
       <TextField
         id="lastName"
         {...register('lastName')}
-        testId="lastname"
+        label="Last name"
         error={errors.lastName?.message}
       />
 
@@ -62,8 +62,8 @@ describe('<TextField />', () => {
     render(<TestForm onSubmit={handleSubmit} />);
 
     // Submit form with lastName not filled
-    userEvent.type(screen.getByLabelText('First'), 'John');
-    userEvent.click(screen.getByText('Submit'));
+    userEvent.type(screen.getByRole('textbox', { name: /first/i }), 'John');
+    userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
     // Expect to see a validation error
     expect(
@@ -75,9 +75,15 @@ describe('<TextField />', () => {
     render(<TestForm onSubmit={handleSubmit} />);
 
     // Enter valid information and submit form
-    userEvent.type(screen.getByLabelText('First'), 'John');
-    userEvent.type(screen.getByTestId('lastname'), 'Smith');
-    userEvent.click(screen.getByText('Submit'));
+    userEvent.type(
+      screen.getByRole('textbox', { name: /first name/i }),
+      'John'
+    );
+    userEvent.type(
+      screen.getByRole('textbox', { name: /last name/i }),
+      'Smith'
+    );
+    userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
     // Expect handleSubmit to be called with the entered information
     await waitFor(() => expect(handleSubmit).toHaveBeenCalledTimes(1));

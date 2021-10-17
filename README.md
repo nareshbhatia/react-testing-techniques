@@ -200,6 +200,7 @@ yarn storybook
 - [Guiding Principles](https://testing-library.com/docs/guiding-principles)
 - [Example](https://testing-library.com/docs/react-testing-library/example-intro)
 - [Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
+- [Common mistakes with React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 ### Storybook
 

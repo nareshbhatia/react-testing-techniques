@@ -37,17 +37,32 @@ describe('<CheckoutPage />', () => {
     render(<CheckoutPage />);
 
     // Enter shipping address and place order
-    userEvent.type(screen.getByLabelText('First name'), address.firstName);
-    userEvent.type(screen.getByLabelText('Last name'), address.lastName);
     userEvent.type(
-      screen.getByLabelText('Company (optional)'),
+      screen.getByRole('textbox', { name: /first name/i }),
+      address.firstName
+    );
+    userEvent.type(
+      screen.getByRole('textbox', { name: /last name/i }),
+      address.lastName
+    );
+    userEvent.type(
+      screen.getByRole('textbox', { name: /company/i }),
       address.company
     );
-    userEvent.type(screen.getByLabelText('Address'), address.address);
-    userEvent.type(screen.getByLabelText('City'), address.city);
-    userEvent.type(screen.getByLabelText('State'), address.state);
-    userEvent.type(screen.getByLabelText('Zip'), address.zip);
-    userEvent.click(screen.getByText('Place your order'));
+    userEvent.type(
+      screen.getByRole('textbox', { name: /address/i }),
+      address.address
+    );
+    userEvent.type(
+      screen.getByRole('textbox', { name: /city/i }),
+      address.city
+    );
+    userEvent.type(
+      screen.getByRole('textbox', { name: /state/i }),
+      address.state
+    );
+    userEvent.type(screen.getByRole('textbox', { name: /zip/i }), address.zip);
+    userEvent.click(screen.getByRole('button', { name: /place your order/i }));
 
     // expect create order API to be called
     await waitFor(() => expect(handleShippingAddress).toBeCalledTimes(1));
