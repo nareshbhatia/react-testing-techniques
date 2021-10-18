@@ -1,4 +1,4 @@
-# Testing for page navigation
+# Testing page navigation
 
 > Note: Applications should probably not check that navigation works, because
 > React Router has lots of tests to assure us that it works! However, if you
