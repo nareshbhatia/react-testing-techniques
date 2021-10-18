@@ -39,8 +39,8 @@ rest.get(`${MOCK_API_URL}/orders`, (req, res, ctx) => {
 });
 ```
 
-Finally, here' the test for the `OrdersPage`. Look how simple it is - no mocking
-needed!!!
+Finally, here's the test for the `OrdersPage`. Look how simple it is - no
+mocking whatsoever!!!
 
 ```tsx
 test('renders correctly', async () => {

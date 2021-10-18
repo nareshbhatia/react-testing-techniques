@@ -111,8 +111,8 @@ sophisticated calculations can be performed without complicating the UI. See
 - [Waiting for something to happen](./docs/waiting-for-something-to-happen.md)
 - [fireEvent() vs userEvent](./docs/fireEvent-vs-userEvent.md)
 - [Mocking an event handler](./docs/mocking-an-event-handler.md)
-- [Avoid mocking by using Mock Service Worker](./docs/avoid-mocking-by-using-mock-service-sorker.md)
-- Overriding/mocking MSW handlers (see CartView & CatalogView tests)
+- [Avoid mocking by using Mock Service Worker](./docs/avoid-mocking-by-using-mock-service-worker.md)
+- [Overriding MSW handlers](./docs/overriding-msw-handlers.md)
 - Testing for page navigation
 - Suppressing console errors
 
