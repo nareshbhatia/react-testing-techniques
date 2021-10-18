@@ -59,7 +59,7 @@ describe('<AddressForm />', () => {
     );
     userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-    // Expect to see a validation errors
+    // Expect to see validation errors on all fields except first name
     expect(await screen.findAllByText('Field is required')).toHaveLength(5);
   });
 

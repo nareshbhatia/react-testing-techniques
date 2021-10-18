@@ -6,8 +6,8 @@ To wait for the removal of one or more elements from the DOM, use
 
 ```tsx
 test('renders correctly (using waitForElementToBeRemoved)', async () => {
-  const { findByText, getAllByTestId, getByText } = render(<OrdersPage />);
-  await waitForElementToBeRemoved(getByText('Loading...'));
-  expect(getAllByTestId('order-view')).toHaveLength(4);
+  render(<OrdersPage />);
+  await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+  expect(screen.getAllByTestId('order-view')).toHaveLength(4);
 });
 ```

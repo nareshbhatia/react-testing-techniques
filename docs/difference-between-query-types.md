@@ -1,22 +1,19 @@
 # Difference between queryBy, getBy and findBy queries
 
 The queries returned by the `render()` function in React Testing Library give us
-a way to find elements on a page. For example, in the test below,
-`getByLabelText` is used to find an input element and `getByText` is used to
-find the submit button.
+a way to find elements on a page. For example, in the test below, `getByRole` is
+used to find an input element and the submit button.
 
 ```tsx
 test('displays a validation error if validation fails', async () => {
-  const { findAllByText, getByLabelText, getByText } = render(
-    <TestForm onSubmit={handleSubmit} />
-  );
+  render(<TestForm onSubmit={handleSubmit} />);
 
-  // Submit form with only firstName filled
-  userEvent.type(getByLabelText('First name'), 'John');
-  userEvent.click(getByText('Submit'));
+  // Submit form with lastName not filled
+  userEvent.type(screen.getByRole('textbox', { name: /first/i }), 'John');
+  userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-  // Expect to see a validation errors
-  expect(await findAllByText('Field is required')).toHaveLength(5);
+  // Expect to see a validation error
+  expect(await screen.findByText('lastName is a required field')).toBeTruthy();
 });
 ```
 
@@ -33,7 +30,8 @@ behaviour:
 | findBy  | throw    | return  | throw    | Yes    |
 
 - `queryBy` is the most lenient query which returns a null if no match is found
-  and returns the element when a match is found.
+  and returns the element when a match is found. The use of this query is
+  recommended only to check the non-existence of an element.
 - `getBy` is a stricter query which throws if no match is found. So this one
   should be used when you expect the element to be available, otherwise you want
   the test to fail.
@@ -52,3 +50,5 @@ For more details, visit the following links:
 - [React Testing Library | Queries](https://testing-library.com/docs/react-testing-library/cheatsheet/#queries)
 
 - [DOM Testing Library | Queries](https://testing-library.com/docs/queries/about/)
+
+- [Common mistakes with React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
