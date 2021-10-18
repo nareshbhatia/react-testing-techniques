@@ -113,8 +113,8 @@ sophisticated calculations can be performed without complicating the UI. See
 - [Mocking an event handler](./docs/mocking-an-event-handler.md)
 - [Avoid mocking by using Mock Service Worker](./docs/avoid-mocking-by-using-mock-service-worker.md)
 - [Overriding MSW handlers](./docs/overriding-msw-handlers.md)
-- Testing for page navigation
-- Suppressing console errors
+- [Testing for page navigation](./docs/testing-for-page-navigation.md)
+- [Suppressing console errors](./docs/suppressing-console-errors.md)
 
 ## Getting Started
 

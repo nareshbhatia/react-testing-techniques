@@ -25,13 +25,14 @@ describe('<CatalogView />', () => {
       })
     );
 
-    // Suppress console errors
+    // suppress console errors
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<CatalogView />);
     const errorMessage = await screen.findByText(/404/);
     expect(errorMessage).toBeInTheDocument();
 
+    // restore console errors
     jest.restoreAllMocks();
   });
 
