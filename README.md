@@ -108,9 +108,9 @@ sophisticated calculations can be performed without complicating the UI. See
 - [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
 - [Checking for existence of an element](./docs/checking-for-existence-of-an-element.md)
 - [Waiting for removal of an element](./docs/waiting-for-removal-of-an-element.md)
-- Waiting for something to happen
-- fireEvent() vs userEvent
-- Mocking an event handler (see ProductView test)
+- [Waiting for something to happen](./docs/waiting-for-something-to-happen.md)
+- [fireEvent() vs userEvent](./docs/fireEvent-vs-userEvent.md)
+- [Mocking an event handler](./docs/mocking-an-event-handler.md)
 - Using Mock Service Worker vs. Jest mocking
 - Overriding/mocking MSW handlers (see CartView & CatalogView tests)
 - Testing for page navigation
