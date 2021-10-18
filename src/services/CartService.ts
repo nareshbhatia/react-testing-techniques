@@ -84,3 +84,7 @@ export const useSetItemQuantity = () => {
     },
   });
 };
+
+export const CartService = {
+  addProduct,
+};
