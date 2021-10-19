@@ -42,7 +42,7 @@ various ways. Moreover, they give me the confidence that I have not broken
 anything when I refactor or extend the code to meet new requirements. The last
 thing I want is to get a call at 3:00 AM to fix a bug that has crashed my app!
 
-## Guiding principles for writing tests
+## Guiding principles when writing tests
 
 The principles listed in this section are based on an article by Kent C. Dodds
 titled
