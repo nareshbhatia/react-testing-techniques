@@ -65,7 +65,7 @@ make it harder (e.g. [React Testing Library](https://testing-library.com/)).
 
 The classic testing wisdom was to write a lot of unit tests to test individual
 "units" of code. We used to isolate our components from their environment using
-mocks. This approach still makes sense for pure functions, but for UI
+mocks. This approach still makes sense for pure functions. But for UI
 components, which depend on communications with surrounding components, mocking
 reduces our confidence in their integrations. So the latest thinking is to test
 several units together to recreate real interaction scenarios, hence the name
@@ -88,7 +88,9 @@ There is a tradeoff between time spent writing tests and code coverage. Some
 organizations put undue focus on code coverage. Unfortunately this sets the
 wrong goal for developers - after a certain point, the returns are not worth the
 effort. You start seeing developers gaming the system by writing meaningless
-tests. Instead, focus on _use case coverage_. Think of all the use cases
+tests.
+
+Instead, focus on _use case coverage_. Think of all the use cases
 (including corner cases) that you want to test to feel confident about your
 code. This approach will automatically yield high code coverage. The tests in
 this project were written with use case coverage in mind and yet as a byproduct

@@ -9,7 +9,7 @@ in buggy code to be committed. Moreover, good tests encode the developer's
 intention. Snapshot tests lack the expression of this intent. So for anything
 beyond the simplest of components, prefer traditional unit tests.
 
-If you do decide to write a snapshot test, use React Testing Library because it
+If you decide to write a snapshot test, use React Testing Library because it
 generates cleaner snapshots. The other popular way is to use
 react-test-renderer, but its output contains component properties and other
 details that are not relevant. Here's an

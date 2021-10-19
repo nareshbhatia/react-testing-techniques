@@ -17,11 +17,10 @@ test('displays a validation error if validation fails', async () => {
 });
 ```
 
-However, React Testing Library offers several query types (`queryBy...`,
-`getBy...` and `findBy...`) that are useful in different use cases. The
-difference is in their behavior for different number of matches found and
-whether they wait for the element to appear. The table below summarizes this
-behaviour:
+However, React Testing Library offers several query types (`queryBy`, `getBy`
+and `findBy`) that are useful in different use cases. The difference is in their
+behavior for different number of matches found and whether they wait for the
+element to appear. The table below summarizes this behavior:
 
 |         | No Match | 1 Match | 1+ Match | Await? |
 | ------- | -------- | ------- | -------- | ------ |
@@ -36,14 +35,14 @@ behaviour:
   should be used when you expect the element to be available, otherwise you want
   the test to fail.
 - `findBy` is similar to `getBy` in the sense that it will throw if the element
-  is not available, but it waits upto a timeout period (default is 1000ms) for
+  is not available, but it waits up to a timeout period (default is 1000ms) for
   the element to appear. Use this query type if you are expecting the element to
   appear after sometime, e.g. if your test is fetching data to show the element.
   `findBy` queries are asynchronous and should be always used with `await`.
 
 Finally, note that all these queries will throw if they find more than 1
 matches. If you are expecting this, use the "All" versions of the queries:
-`queryAllBy...`, `getAllBy...` and `findAllBy...`.
+`queryAllBy`, `getAllBy` and `findAllBy`.
 
 For more details, visit the following links:
 
