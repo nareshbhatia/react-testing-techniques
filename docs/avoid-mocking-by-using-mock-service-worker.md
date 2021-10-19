@@ -3,7 +3,8 @@
 As discussed in the Guiding Principles, excessive mocking at the component level
 reduces our confidence in their integration with other components and the
 service layer. This can be avoided by mocking at the network level using
-[Mock Service Worker](https://mswjs.io/).
+[Mock Service Worker](https://mswjs.io/) (MSW). It allows us to reuse the same
+mock definition for testing, development, and debugging.
 
 Let's consider the [OrdersPage](../src/pages/OrdersPage/OrdersPage.tsx) as an
 example. This page fetches the orders from the server and displays them as a
@@ -30,8 +31,13 @@ To test this component, we could mock the `useOrdersQuery` hook and artificially
 provide some orders to display inside the component. Instead, we decided to
 leave all the application code intact and let the component make a real HTTP
 call from the test. We then intercept this call at the network level using Mock
-Service Worker and return some test data in the response. Here's the
-[MSW handler](../src/mocks/handlers.ts#L25-L27) that returns the response:
+Service Worker and return some test data in the response.
+
+To intercept HTTP calls, you provide a file called
+[handlers.ts](../src/mocks/handlers.ts) in your project. Each request that you
+want to intercept should have an associated handler. Here's the
+[handler](../src/mocks/handlers.ts#L25-L27) that intercepts `GET /orders` and
+returns some orders in response:
 
 ```ts
 rest.get(`${MOCK_API_URL}/orders`, (req, res, ctx) => {
