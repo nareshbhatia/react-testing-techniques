@@ -102,7 +102,7 @@ sophisticated calculations can be performed without complicating the UI. See
 [here](./src/models/Cart.ts) for examples for pure functions and the
 [related tests](./src/models/Cart.test.ts).
 
-## Techniques
+## Testing Techniques
 
 - [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
 - [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
