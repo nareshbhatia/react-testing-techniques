@@ -3,7 +3,10 @@
 This project demonstrates best practices in testing React applications by
 implementing a realistic online shopping application.
 
-We use the following tools for testing:
+P.S. If you find this project useful, please show your appreciation by starring
+this repository.
+
+## Tools of the trade
 
 **Unit & Integration Testing**
 
@@ -90,11 +93,11 @@ wrong goal for developers - after a certain point, the returns are not worth the
 effort. You start seeing developers gaming the system by writing meaningless
 tests.
 
-Instead, focus on _use case coverage_. Think of all the use cases
-(including corner cases) that you want to test to feel confident about your
-code. This approach will automatically yield high code coverage. The tests in
-this project were written with use case coverage in mind and yet as a byproduct
-we have upwards of 90% code coverage!
+Instead, focus on _use case coverage_. Think of all the use cases (including
+corner cases) that you want to test to feel confident about your code. This
+approach will automatically yield high code coverage. The tests in this project
+were written with use case coverage in mind and yet as a byproduct we have
+upwards of 90% code coverage!
 
 ### Push business logic into pure functions rather than UI components
 
