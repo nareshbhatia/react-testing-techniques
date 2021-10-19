@@ -185,10 +185,15 @@ yarn storybook
 ### Testing Best Practices
 
 - [How to know what to test](https://kentcdodds.com/blog/how-to-know-what-to-test)
+  by Kent C. Dodds
 - [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests)
+  by Kent C. Dodds
 - [Write fewer, longer tests](https://kentcdodds.com/blog/write-fewer-longer-tests)
+  by Kent C. Dodds
 - [Making your UI tests resilient to change](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change)
+  by Kent C. Dodds
 - [Testing Implementation Details](https://kentcdodds.com/blog/testing-implementation-details)
+  by Kent C. Dodds
 
 ### Jest
 
