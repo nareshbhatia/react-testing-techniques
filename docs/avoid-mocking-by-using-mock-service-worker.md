@@ -1,14 +1,20 @@
 # Avoid mocking by using Mock Service Worker
 
-As discussed in the Guiding Principles, excessive mocking at the component level
-reduces our confidence in their integration with other components and the
-service layer. This can be avoided by mocking at the network level using
-[Mock Service Worker](https://mswjs.io/) (MSW). It allows us to reuse the same
-mock definition for testing, development, and debugging.
+Continuing to build upon the idea of "Test your components as a user would", a
+key strategy is to prefer integration testing over unit testing. By integration,
+we don't just mean integrating two or more UI components, but also integrating
+the service layer and API calls. As you know, many of our UI components depend
+on APIs for displaying and updating data, so exercising the entire chain of
+components up to the API calls is important.
 
-Let's consider the [OrdersPage](../src/pages/OrdersPage/OrdersPage.tsx) as an
-example. This page fetches the orders from the server and displays them as a
-list. Here's a short snippet from this component.
+This is where [Mock Service Worker](https://mswjs.io) (MSW) comes in. It
+intercepts the API calls at the network level and returns the desired responses.
+This enables tests to exercise components in their natural environment without
+performing any surgery! Let's see how.
+
+Consider the [OrdersPage](../src/pages/OrdersPage/OrdersPage.tsx) as an example.
+This page fetches the orders from the server and displays them as a list. Here's
+a short snippet from this component.
 
 ```tsx
 import { useOrdersQuery } from '../../services';

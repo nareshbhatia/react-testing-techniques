@@ -68,22 +68,25 @@ make it harder (e.g. [React Testing Library](https://testing-library.com/)).
 
 The classic testing wisdom was to write a lot of unit tests to test individual
 "units" of code. We used to isolate our components from their environment using
-mocks. This approach still makes sense for pure functions. But for UI
-components, which depend on communications with surrounding components, mocking
-reduces our confidence in their integrations. So the latest thinking is to test
-several units together to recreate real interaction scenarios, hence the name
-_integration testing_.
+mocks. It was like testing a fish's swimming abilities out of the water. This
+approach still makes sense for pure functions. But for UI components, which
+depend on communications with surrounding components, mocking reduces our
+confidence in their integrations.
 
-This brings us to the guiding principle which is the foundation of the React
-Testing Library:
+> For this reason, the latest thinking is to test several units together to
+> recreate real interaction scenarios, hence the name "integration testing".
+
+This brings us to the guiding principle which is the foundation of the
+[React Testing Library](https://testing-library.com/docs/guiding-principles):
 
 > The more your tests resemble the way your software is used, the more
 > confidence they can give you.
 
 For example, drop a couple of components under a `<Context.Provider>` to test
-real user interactions. Or use [Mock Service Worker](https://mswjs.io/) to mock
-APIs at the network level rather than excessively mocking at the component or
-service layer.
+real user interactions. You could also use
+[Mock Service Worker](https://mswjs.io) to mock APIs at the network level rather
+than excessively mocking at the component or service layer. We will talk more
+about this in the testing techniques section below.
 
 ### Don't be obsessed with code coverage
 
@@ -110,6 +113,9 @@ sophisticated calculations can be performed without complicating the UI. See
 [related tests](./src/models/Cart.test.ts).
 
 ## Testing Techniques
+
+Now that we understand why we test the way we do, let's go over 10 techniques
+you can apply now.
 
 - [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
 - [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
