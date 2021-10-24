@@ -60,9 +60,11 @@ So without further ado, let's jump into the guiding principles.
 If your test does something that your user doesn't, chances are that you are
 testing implementation details. For example, you may be exposing a private
 function just to test your component. This is a code smell – don't do it. A
-refactor can easily break your test. So stay away from testing tools that allow
-you to test implementation details (e.g. Enzyme), and instead use tools that
-make it harder (e.g. [React Testing Library](https://testing-library.com/)).
+refactor can easily break your test. Another example is using certain APIs of a
+React testing tool called [Enzyme](https://enzymejs.github.io/enzyme/), e.g. its
+`instance()`, `state()` and `setState()` APIs. Stay away such tools, instead use
+tools that make it harder to test implementation details such as
+[React Testing Library](https://testing-library.com/).
 
 ### Test your components as a user would
 
