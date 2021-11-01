@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from '../../test/test-utils';
 import {
   CenteredContainer,
   HorizontalContainer,
@@ -8,7 +9,6 @@ import {
   ViewHorizontalContainer,
   ViewVerticalContainer,
 } from './Containers';
-import { render } from '@testing-library/react';
 
 describe('Containers', () => {
   test('HorizontalContainer renders correctly', () => {

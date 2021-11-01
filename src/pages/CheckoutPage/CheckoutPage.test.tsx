@@ -1,11 +1,10 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { v4 as uuidv4 } from 'uuid';
 import { MOCK_API_URL } from '../../mocks/constants';
 import mockOrders from '../../mocks/mockOrders.json';
 import { server } from '../../mocks/server';
-import { render, screen, waitFor } from '../../test/test-utils';
+import { render, screen, userEvent, waitFor } from '../../test/test-utils';
 import { CheckoutPage } from './CheckoutPage';
 import { CheckoutInfo, Order } from '../../models';
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import { render, screen, userEvent, waitFor } from '../../test/test-utils';
 import { TextField } from './TextField';
 
 // ---------- TestForm ----------

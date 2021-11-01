@@ -116,20 +116,21 @@ sophisticated calculations can be performed without complicating the UI. See
 
 ## Testing Techniques
 
-Now that we understand why we test the way we do, let's go over 10 techniques
+Now that we understand why we test the way we do, let's go over 12 techniques
 you can apply now.
 
-- [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
-- [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
-- [Checking for existence of an element](./docs/checking-for-existence-of-an-element.md)
-- [Waiting for removal of an element](./docs/waiting-for-removal-of-an-element.md)
-- [Waiting for something to happen](./docs/waiting-for-something-to-happen.md)
-- [fireEvent() vs userEvent](./docs/fireEvent-vs-userEvent.md)
-- [Mocking an event handler](./docs/mocking-an-event-handler.md)
-- [Avoid mocking by using Mock Service Worker](./docs/avoid-mocking-by-using-mock-service-worker.md)
-- [Overriding MSW handlers](./docs/overriding-msw-handlers.md)
-- [Testing page navigation](./docs/testing-page-navigation.md)
-- [Suppressing console errors](./docs/suppressing-console-errors.md)
+1. [Setting up React Testing Library](./docs/setting-up-react-testing-library.md)
+2. [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
+3. [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
+4. [Checking for existence of an element](./docs/checking-for-existence-of-an-element.md)
+5. [Waiting for removal of an element](./docs/waiting-for-removal-of-an-element.md)
+6. [Waiting for something to happen](./docs/waiting-for-something-to-happen.md)
+7. [fireEvent() vs userEvent](./docs/fireEvent-vs-userEvent.md)
+8. [Mocking an event handler](./docs/mocking-an-event-handler.md)
+9. [Avoid mocking by using Mock Service Worker](./docs/avoid-mocking-by-using-mock-service-worker.md)
+10. [Overriding MSW handlers](./docs/overriding-msw-handlers.md)
+11. [Testing page navigation](./docs/testing-page-navigation.md)
+12. [Suppressing console errors](./docs/suppressing-console-errors.md)
 
 ## Getting Started
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import mockOrders from '../../mocks/mockOrders.json';
 import { CheckoutInfo } from '../../models';
+import { render, screen, userEvent, waitFor } from '../../test/test-utils';
 import { yupLocale } from '../../utils';
 import { AddressForm, getAddressSchema } from './AddressForm';
 

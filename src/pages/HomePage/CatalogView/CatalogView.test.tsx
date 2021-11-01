@@ -1,9 +1,8 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { MOCK_API_URL } from '../../../mocks/constants';
 import { server } from '../../../mocks/server';
-import { render, screen, waitFor } from '../../../test/test-utils';
+import { render, screen, userEvent, waitFor } from '../../../test/test-utils';
 import { CatalogView } from './CatalogView';
 
 const addProduct = jest.fn();

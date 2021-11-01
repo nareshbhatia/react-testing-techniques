@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
 import { App } from './App';
 import { HomePage, NotFoundPage } from './pages';
+import { render, screen } from './test/test-utils';
 
 jest.mock('./pages/HomePage/HomePage');
 jest.mock('./pages/NotFoundPage/NotFoundPage');
@@ -13,11 +12,7 @@ describe('<App />', () => {
     (HomePage as jest.Mock).mockImplementation(() => <div>HomePageMock</div>);
 
     // Act
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
+    render(<App />);
 
     // Assert
     expect(screen.getByText('HomePageMock')).toBeTruthy();
@@ -30,11 +25,7 @@ describe('<App />', () => {
     ));
 
     // Act
-    render(
-      <MemoryRouter initialEntries={['/invalid/route']}>
-        <App />
-      </MemoryRouter>
-    );
+    render(<App />, { initialRoute: '/invalid/route' });
 
     // Assert
     expect(screen.getByText('NotFoundMock')).toBeTruthy();

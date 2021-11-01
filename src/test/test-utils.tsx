@@ -1,6 +1,7 @@
 import React, { ReactElement, Suspense } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { MemoryRouter as Router } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary, Loading } from '../components';
 import { EnvProvider } from '../contexts';
@@ -48,11 +49,21 @@ const AllProviders: React.FC = ({ children }) => {
 /**
  * Custom render method that includes global context providers
  */
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'queries'>
-) => render(ui, { wrapper: AllProviders, ...options });
+type CustomRenderOptions = {
+  initialRoute?: string;
+  renderOptions?: Omit<RenderOptions, 'wrapper'>;
+};
+
+function customRender(ui: ReactElement, options?: CustomRenderOptions) {
+  const opts = options || {};
+  const { initialRoute, renderOptions } = opts;
+
+  if (initialRoute) {
+    window.history.pushState({}, 'Initial Route', initialRoute);
+  }
+
+  return render(ui, { wrapper: AllProviders, ...renderOptions });
+}
 
 export * from '@testing-library/react';
-
-export { customRender as render };
+export { customRender as render, userEvent };

@@ -1,5 +1,4 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { Route, Routes } from 'react-router-dom';
 import { MOCK_API_URL } from '../../../mocks/constants';
@@ -8,6 +7,7 @@ import { CartUtils } from '../../../models';
 import {
   render,
   screen,
+  userEvent,
   waitFor,
   waitForElementToBeRemoved,
 } from '../../../test/test-utils';

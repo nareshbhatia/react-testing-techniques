@@ -1,6 +1,5 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
-import { render, screen } from '../../test/test-utils';
+import { render, screen, userEvent } from '../../test/test-utils';
 import { mockCatalog } from '../../mocks/mockCatalog';
 import { CartService } from '../../services';
 import { Product } from '../../models';
