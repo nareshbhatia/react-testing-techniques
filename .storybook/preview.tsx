@@ -1,7 +1,7 @@
-import React from 'react';
-import { addDecorator } from '@storybook/react';
+import React, { Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ErrorBoundary, Loading } from '../src/components';
 import { EnvProvider } from '../src/contexts';
 import '../src/services/AxiosInterceptors';
 import '../src/styles/main.css';
@@ -28,14 +28,18 @@ const queryClient = new QueryClient({
   },
 });
 
-const StoryDecorator = (Story: any) => (
-  <EnvProvider>
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Story />
-      </Router>
-    </QueryClientProvider>
-  </EnvProvider>
-);
-
-addDecorator(StoryDecorator);
+export const decorators = [
+  (Story: any) => (
+    <Suspense fallback={<Loading />}>
+      <ErrorBoundary>
+        <EnvProvider>
+          <QueryClientProvider client={queryClient}>
+            <Router>
+              <Story />
+            </Router>
+          </QueryClientProvider>
+        </EnvProvider>
+      </ErrorBoundary>
+    </Suspense>
+  ),
+];
