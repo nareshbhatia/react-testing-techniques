@@ -14,7 +14,7 @@ export const OrderView = ({ order }: OrderViewProps) => {
   const { createdAt, items, shippingAddress } = order;
 
   return (
-    <div data-testid="order-view" className="product paper border-paper">
+    <div data-testid="order-view" className="order paper border-paper">
       <HorizontalContainer className="justify-between">
         <AddressView address={shippingAddress} />
         <p className="m-0">{DateUtils.formatISODate(createdAt)}</p>
