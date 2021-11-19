@@ -182,6 +182,22 @@ yarn cypress:open
 yarn storybook
 ```
 
+## Running In Production Mode
+
+Because MSW is disabled in production mode, you must first run an external API
+server. To do this, clone the
+[React Test Shop Server](https://github.com/nareshbhatia/react-test-shop-server)
+repository and follow the instructions there to start an API server on
+port 8080.
+
+Now build this project in production mode and start it using a web server like
+`serve`:
+
+```sh
+yarn build
+serve -s build
+```
+
 ## Screenshots
 
 ### Home Page
