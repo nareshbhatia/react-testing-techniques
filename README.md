@@ -64,8 +64,8 @@ testing implementation details. For example, you may be exposing a private
 function just to test your component. This is a code smell – don't do it. A
 refactor can easily break your test. Another example is using certain APIs of a
 React testing tool called [Enzyme](https://enzymejs.github.io/enzyme/), e.g. its
-`instance()`, `state()` and `setState()` APIs. Stay away such tools, instead use
-tools that make it harder to test implementation details (e.g.
+`instance()`, `state()` and `setState()` APIs. Stay away from such tools,
+instead use tools that make it harder to test implementation details (e.g.
 [React Testing Library](https://testing-library.com/)).
 
 ### Test your components as a user would

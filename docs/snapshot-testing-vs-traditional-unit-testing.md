@@ -1,5 +1,10 @@
 # Snapshot testing vs. traditional unit testing
 
+> Note: This section refers to snapshot tests that take snapshots of markup, not
+> images. There are also image snapshot tests that pinpoint visual changes.
+> While markup snapshot tests are not encouraged, image snapshot tests are
+> encouraged to identify styling regressions.
+
 Use snapshot tests only for small components where the snapshots can be easily
 read by human beings and verified for correctness (usually 20-30 lines max).
 Here's an
