@@ -1,7 +1,7 @@
 # Setting up React Testing Library
 
 It's useful to customize React Testing Library's `render` method to include
-things like global context providers, data stores, etc. that are used in your
+things like global context providers, data stores, etc. which are used in your
 app. This enables tests to run in an environment closer to your real app. In
 addition, this approach avoids repeating wrappers in every test. To make this
 render method available globally, define a utility file that re-exports

@@ -92,13 +92,12 @@ real user interactions. You could also use
 than excessively mocking at the component or service layer. We will talk more
 about this in the testing techniques section below.
 
-### Don't be obsessed with code coverage
+### Focus on use case coverage
 
 There is a tradeoff between time spent writing tests and code coverage. Some
 organizations put undue focus on code coverage. Unfortunately this sets the
-wrong goal for developers - after a certain point, the returns are not worth the
-effort. You start seeing developers gaming the system by writing meaningless
-tests.
+wrong goal for developers. You start seeing people gaming the system by writing
+meaningless tests.
 
 Instead, focus on _use case coverage_. Think of all the use cases (including
 corner cases) that you want to test to feel confident about your code. This
@@ -122,7 +121,7 @@ Now that we understand why we test the way we do, let's go over 12 techniques
 you can apply now.
 
 1. [Setting up React Testing Library](./docs/setting-up-react-testing-library.md)
-2. [Snapshot testing vs. traditional unit testing](./docs/snapshot-testing-vs-traditional-unit-testing.md)
+2. [Functional testing vs. snapshot testing vs. screenshot testing](./docs/functional-vs-snapshot-vs-screenshot-testing.md)
 3. [Difference between queryBy, getBy and findBy queries](./docs/difference-between-query-types.md)
 4. [Checking for existence of an element](./docs/checking-for-existence-of-an-element.md)
 5. [Waiting for removal of an element](./docs/waiting-for-removal-of-an-element.md)
