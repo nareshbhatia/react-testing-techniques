@@ -147,7 +147,7 @@ test('when clicked, calls onClick with productId', async () => {
 In this approach we only mock one function in the CartService module. This is
 done using
 [jest.spyOn](https://jestjs.io/docs/jest-object#jestspyonobject-methodname).
-`jest.synOn` creates a mock function similar to `jest.fn` but also tracks calls
+`jest.spyOn` creates a mock function similar to `jest.fn` but also tracks calls
 to the specified method. For example:
 
 ```tsx
